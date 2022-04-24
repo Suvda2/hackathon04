@@ -1,0 +1,121 @@
+.bmanage {
+  background: var(--cr-background);
+  color: var(--cr-text);
+}
+
+.bmanage__wrapper {
+  display: grid;
+  grid-gap: 50px;
+  margin: var(--sp-normal) auto 0;
+  max-width: 1000px;
+  width: 90%;
+}
+
+.bmanage__header {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.bmanage__item {
+  margin-top: var(--sp-normal);
+}
+
+.bmanage__input,
+.bmanage__select,
+.bmanage__pinput,
+.bmanage__textarea {
+  margin-top: 15px;
+}
+
+.bmanage__input input {
+  background: transparent;
+  border: 1px solid #8f8f9d;
+  border-radius: 2px;
+  outline: none;
+  padding: 10px 15px;
+  width: 350px;
+  color: var(--cr-text);
+}
+
+.bmanage__select select {
+  background: transparent;
+  padding: 10px;
+  width: 350px;
+  outline: none;
+  border: 1px solid #8f8f9d;
+  border-radius: 2px;
+  color: var(--cr-text);
+}
+
+.bmanage__select option {
+  background: #2b2a33;
+  padding: 0 !important;
+}
+
+.bmanage__pinput {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 250px;
+  width: 250px;
+  border: 1px solid #8f8f9d;
+  border-radius: 2px;
+  color: #8f8f9d;
+  font-size: 25px;
+}
+
+.bmanage__pinput input {
+  background: transparent;
+  display: none;
+}
+
+.bmanage__textarea {
+  height: 250px;
+  width: 400px;
+}
+
+.bmanage__textarea textarea {
+  background: transparent;
+  height: 100%;
+  width: 100%;
+  border: 1px solid #8f8f9d;
+  border-radius: 2px;
+  resize: none;
+  color: var(--cr-text);
+  padding: 15px;
+}
+
+.bmanage__button {
+  padding: 10px 15px;
+  border: 1px solid #8f8f9d;
+  border-radius: 2px;
+  margin-top: var(--sp-normal);
+  width: min-content;
+  cursor: pointer;
+}
+
+.bmanage__button:hover {
+  border: 1px solid var(--cr-nomlog);
+  color: var(--cr-nomlog);
+}
+
+@media (min-width: 576px) {
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 992px) {
+  .bmanage__wrapper {
+    grid-template-columns: 1fr 300px;
+  }
+}
+
+@media (min-width: 1200px) {
+}
+
+@media (min-width: 1400px) {
+}
+
+@media (min-width: 1600px) {
+}

@@ -1,0 +1,41 @@
+.book__item {
+  padding: 5px;
+  /* border: 1px solid var(--cr-gray); */
+  border-radius: 15px;
+}
+
+.book__cover {
+  object-fit: contain;
+  height: 200px;
+  width: 100%;
+}
+
+.book__title {
+  font-size: 13px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.book__price {
+  font-size: 12px;
+  text-align: center;
+  margin-top: 5px;
+}
+
+@media (min-width: 576px) {
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 992px) {
+}
+
+@media (min-width: 1200px) {
+}
+
+@media (min-width: 1400px) {
+}
+
+@media (min-width: 1600px) {
+}

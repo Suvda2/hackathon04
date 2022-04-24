@@ -1,29 +1,13 @@
-// import uuid from 'uuid';
 import { useState } from 'react';
-import { v4 } from 'uuid';
+import Link from 'next/link';
 
-import styles from './index.module.css';
-import Navbar from './chest/Navbar';
-import About from './chest/About';
-import BookItem from './chest/BookItem';
+import styles from './[id].module.css';
+import Navbar from '../chest/Navbar';
+import About from '../chest/About';
 
-import { AiOutlineSearch } from 'react-icons/ai';
+import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 
-const testapi = ['https://data.internom.mn/media/images//41557.jpg', 'https://data.internom.mn/media/images//6541254441211.jpg', 'https://data.internom.mn/media/images//Harry_Potter_and_The_Goblet_of_Fire_COVER1.jpg', 'https://data.internom.mn/media/images//14994_cover-2.jpg', 'https://data.internom.mn/media/images//41557.jpg', 'https://data.internom.mn/media/images//6541254441211.jpg', 'https://data.internom.mn/media/images//Harry_Potter_and_The_Goblet_of_Fire_COVER1.jpg', 'https://data.internom.mn/media/images//14994_cover-2.jpg', 'https://data.internom.mn/media/images//41557.jpg', 'https://data.internom.mn/media/images//6541254441211.jpg', 'https://data.internom.mn/media/images//Harry_Potter_and_The_Goblet_of_Fire_COVER1.jpg', 'https://data.internom.mn/media/images//14994_cover-2.jpg'];
-
-// const bookrent = [
-//   { name: 'Freezing Order', pictureUrl: 'https://images-na.ssl-images-amazon.com/images/I/81uZ3a8TtBL.jpg', bestseller: true, price: 65000 },
-//   { name: 'Run, Rose, Run', pictureUrl: 'https://images-na.ssl-images-amazon.com/images/I/81SQwBAtpWL.jpg', bestseller: true, price: 60000 },
-//   { name: 'The Midnight Library', pictureUrl: 'https://images-na.ssl-images-amazon.com/images/I/81tCtHFtOgL.jpg', bestseller: true, price: 24000 },
-//   { name: 'Dream Town', pictureUrl: 'https://images-na.ssl-images-amazon.com/images/I/911hfpUcpGL.jpg', bestseller: true, price: 25000 },
-//   { name: 'The Last Thing He Told Me', pictureUrl: 'https://images-na.ssl-images-amazon.com/images/I/81823bTjKHL.jpg', bestseller: true, price: 25000 },
-//   { name: 'Heartstopper Volume One ', pictureUrl: 'https://images-na.ssl-images-amazon.com/images/I/71z-KTBBTpL.jpg', bestseller: false, price: 19900 },
-//   { name: 'The Subtle Art of Not Giving a F*ck', pictureUrl: 'https://images-na.ssl-images-amazon.com/images/I/71QKQ9mwV7L.jpg', bestseller: true, price: 45000 },
-//   { name: 'Хатагтай Перегриний онцгой хүүхдүүд 5', pictureUrl: 'https://book.mn/timthumb.php?src=https://book.mn/uploads/products/1647501244-34432380.jpg&w=400&h=500&zc=2&q=90&s=1', bestseller: false, price: 19900 },
-//   { name: 'IELTS-800', pictureUrl: 'https://book.mn/timthumb.php?src=https://book.mn/uploads/products/1650369628-82391484.jpg&w=400&h=500&zc=2&q=90&s=1', bestseller: true, price: 19900 },
-// ];
-
-const buybooks = [
+const books = [
   { id: 20311, genre: 'Гадаадын уран зохиол', name: 'Алхимич', pictureUrl: 'https://m.media-amazon.com/images/I/71CaTj9MAFL._AC_UY327_QL65_.jpg', isbn: '978-99978-5-054-8', desc: 'Андалузийн хоньчин хүү Сантъяго ам дамжин яригдсан нууцлаг эрдэнэсийг олох аялалд мордож буй тухай энэхүү зохиолд өгүүлдэг. Мөрөөдөл хүсэл нь түүнийг төсөөллөөс нь ч илүү баян болгоно гэдэгт тэр итгэж байлаа. Үнэ аялал залуу хүүд зүрх сэтгэлээ сонсох, зөн совингоо дагахын үнэ цэнийг мэдрүүлж, өөрийгөө нээх, хамгийн чухал нь хүсэл мөрөөдлөө олоход нь тусалдаг.', price: 25000 },
   { id: 20312, genre: 'Гэр бүл, хувь хүний хөгжил', name: 'Гадаадад сурах гарц', pictureUrl: 'https://d3tfpmmm736cqr.cloudfront.net/r_md_h/images/publisher/square/60ff77c9_ab9468_0.643.jpg', isbn: '978-9919-9683-1-1', desc: 'Гадаадад сурмаар л байгаа бол хамгийн түрүүнд гадаад хэлээ л сайжруул. Хэлээ сурчихсан байхад бүх л мэдээллийг цаг тухайд нь авахын зэрэгцээ тэр бүр хүмүүсийн олж харад байдаггүй олон боломжийг олж мэдэх болно.', price: 17910 },
   { id: 20313, genre: 'Адал явдалт', name: "Harry Potter and the Philosopher's Stone", pictureUrl: 'https://i2-prod.walesonline.co.uk/incoming/article6890072.ece/ALTERNATES/s615b/hp1.jpg', isbn: '978-99978-5-054-8', desc: 'Гадаадад сурмаар л байгаа бол хамгийн түрүүнд гадаад хэлээ л сайжруул. Хэлээ сурчихсан байхад бүх л мэдээллийг цаг тухайд нь авахын зэрэгцээ тэр бүр хүмүүсийн олж харад байдаггүй олон боломжийг олж мэдэх болно.', price: 25000 },
@@ -35,9 +19,6 @@ const buybooks = [
   { id: 20319, genre: 'Хувь хүний хөгжил', name: 'Одоо англи үг цээжлэхгүй байхыг чинь харнаа - 2', pictureUrl: 'https://book.mn/timthumb.php?src=https://book.mn/uploads/products/1556946371-75000625.jpg&w=400&h=500&zc=2&q=90&s=1', isbn: '978-99978-5-054-8', desc: 'Гадаадад сурмаар л байгаа бол хамгийн түрүүнд гадаад хэлээ л сайжруул. Хэлээ сурчихсан байхад бүх л мэдээллийг цаг тухайд нь авахын зэрэгцээ тэр бүр хүмүүсийн олж харад байдаггүй олон боломжийг олж мэдэх болно.', price: 20000 },
   { id: 20320, genre: 'English book', name: 'Atomic Habits', pictureUrl: 'https://images-na.ssl-images-amazon.com/images/I/81wgcld4wxL.jpg', isbn: '978-99978-5-054-8', desc: 'Гадаадад сурмаар л байгаа бол хамгийн түрүүнд гадаад хэлээ л сайжруул. Хэлээ сурчихсан байхад бүх л мэдээллийг цаг тухайд нь авахын зэрэгцээ тэр бүр хүмүүсийн олж харад байдаггүй олон боломжийг олж мэдэх болно.', price: 30000 },
   { id: 20321, genre: 'English book', name: 'The Flames of Hope', pictureUrl: 'https://images-na.ssl-images-amazon.com/images/I/71BKJ0eJ+nL.jpg', isbn: '978-99978-5-054-8', desc: 'Гадаадад сурмаар л байгаа бол хамгийн түрүүнд гадаад хэлээ л сайжруул. Хэлээ сурчихсан байхад бүх л мэдээллийг цаг тухайд нь авахын зэрэгцээ тэр бүр хүмүүсийн олж харад байдаггүй олон боломжийг олж мэдэх болно.', price: 36000 },
-];
-
-const rentbooks = [
   { id: 20322, genre: 'English book', name: 'Freezing Order', pictureUrl: 'https://images-na.ssl-images-amazon.com/images/I/81uZ3a8TtBL.jpg', isbn: '9781982153281', desc: 'Following his explosive New York Times bestseller Red Notice, Bill Browder returns with another gripping thriller chronicling how he became Vladimir Putin’s number one enemy by exposing Putin’s campaign to steal and launder hundreds of billions of dollars and kill anyone who stands in his way.', price: 65000 },
   { id: 20323, genre: 'English book', name: 'Run, Rose, Run', pictureUrl: 'https://images-na.ssl-images-amazon.com/images/I/81SQwBAtpWL.jpg', isbn: '9781668608258', desc: 'From America’s most beloved superstar and its greatest storyteller comes a thriller about a young singer-songwriter on the rise and on the run—and determined to do whatever it takes to survive.', price: 60000 },
   { id: 20324, genre: 'English book', name: 'The Midnight Library', pictureUrl: 'https://images-na.ssl-images-amazon.com/images/I/81tCtHFtOgL.jpg', isbn: '9783426282564', desc: 'A beguiling read, filled with warmth and humour, and a vibrant celebration of the power of books to change lives.', price: 24000 },
@@ -49,142 +30,94 @@ const rentbooks = [
   { id: 20330, genre: 'English book', name: 'IELTS-800', pictureUrl: 'https://book.mn/timthumb.php?src=https://book.mn/uploads/products/1650369628-82391484.jpg&w=400&h=500&zc=2&q=90&s=1', isbn: '9781501171345', desc: '-Үгийг төрөл бүрээр цээжлэхэд зориулсан  дуудлага, монгол төсөөтэй үг, жишээ өгүүлбэр, сонирхолтой зурагтай, Бүх түвшний нийт 100000 гаруй үгсийн сантай', price: 19900 },
 ];
 
-const Index = () => {
-  const [search, setSearch] = useState('');
+const Read = (props) => {
+  const [counter, setCounter] = useState(0);
+  const [bookGenre, setBookGenre] = useState('paper');
 
-  var buybooksfiltered = buybooks.filter((item) => item.name.toLocaleLowerCase().includes(search.toLocaleLowerCase().replace(/\s+/g, ' ').trim()));
-  var rentbooksfiltered = rentbooks.filter((item) => item.name.toLocaleLowerCase().includes(search.toLocaleLowerCase().replace(/\s+/g, ' ').trim()));
+  const book = books.find((item) => item.id == props['id']);
 
   return (
-    <div className={styles['home']}>
+    <div className={styles['read']}>
       <Navbar />
 
-      <div className={styles['home__wrapper']}>
-        <div className={styles['special']}>
-          <div className={styles['special__wrapper']}>
-            <div className={styles['special__label']}>Цахим номын худалдаа</div>
+      <div className={styles['read__wrapper']}>
+        <div className={styles['boqinfo']}>
+          <div className={styles['preview']}>
+            <img src={book['pictureUrl']} />
+          </div>
 
-            <div className={styles['special__desc']}>Хамгийн хурдан, нэгдсэн номын систем</div>
+          <div className={styles['qinfo']}>
+            <div className={styles['qinfo__genre']}>{book['genre']}</div>
+
+            <div className={styles['qinfo__title']}>{book['name']}</div>
+
+            <div className={styles['qinfo__item']}>
+              <span className={styles['qinfo__label']}>ISBN:</span> {book['isbn']}
+            </div>
+
+            <div className={styles['qinfo__desc']}>{book['desc']}</div>
           </div>
         </div>
 
-        <div className={styles['search']}>
-          <AiOutlineSearch /> <input placeholder='Та хайх номоо энд оруулна уу' onChange={(ev) => setSearch(ev.target.value)} />
-        </div>
+        <div className={styles['payment']}>
+          <div className={styles['payment__label']}>Төлбөр тооцоо</div>
 
-        <div className={styles['book']} id='newbooks'>
-          <div className={styles['book__label']}>Худалдаж авах</div>
+          <div className={styles['payment__wrapper']}>
+            <div className={styles['painfo']}>
+              <div className={styles['painfo__item']}>
+                <div className={styles['painfo__label']}>
+                  Үндсэн үнэ: <span className={styles['painfo__price']}>₮{book['price'].toLocaleString()}</span>
+                </div>
+              </div>
 
-          <div className={styles['bookgenre']}>
-            <div className={styles['bookgenre__item']}>
-              <select>
-                <option>Адал явдалт</option>
+              <div className={styles['painfo__item']}>
+                <div className={styles['painfo__label']}>Номын төрөл</div>
 
-                <option>Уран зөгнөлт</option>
+                <div className={styles['painfo__genre']}>
+                  <div onClick={() => setBookGenre('paper')} className={styles['painfo__genre-item'] + (bookGenre == 'paper' ? ' ' + styles['painfo__genre-item--selected'] : '')}>
+                    Хэвлэмэл
+                  </div>
 
-                <option>Хөгжил</option>
+                  <div onClick={() => setBookGenre('internet')} className={styles['painfo__genre-item'] + (bookGenre == 'internet' ? ' ' + styles['painfo__genre-item--selected'] : '')}>
+                    Цахим ном
+                  </div>
+                </div>
+              </div>
 
-                <option>Түүх</option>
+              <div className={styles['painfo__item']}>
+                <div className={styles['painfo__label']}>Авах тоо ширхэг</div>
 
-                <option>Сурах бичиг</option>
+                <div className={styles['painfo__cnt']}>
+                  <AiOutlineMinus onClick={() => setCounter((prev) => (prev > 0 ? prev - 1 : 0))} />
 
-                <option>Хүүхдийн</option>
-              </select>
+                  <span className={styles['painfo__cnt-value']}>{counter}</span>
+
+                  <AiOutlinePlus onClick={() => setCounter((prev) => prev + 1)} />
+                </div>
+              </div>
+
+              <div className={styles['painfo__button']}>
+                <Link href='/payment'>
+                  <a>Баталгаажуулах</a>
+                </Link>
+              </div>
             </div>
 
-            <div className={styles['bookgenre__item']}>
-              <select>
-                <option>Монгол хэл</option>
+            <div className={styles['paview']}>
+              <div className={styles['paview__label']}>Төлбөрийн хуудас</div>
 
-                <option>Англи хэл</option>
+              <div className={styles['paview__item']}>
+                Үндсэн үнэ: <span className={styles['paview__value']}>₮{book['price'].toLocaleString()}</span>
+              </div>
 
-                <option>Япон хэл</option>
+              <div className={styles['paview__item']}>
+                Тоо ширхэг: <span className={styles['paview__value']}>{counter}ш</span>
+              </div>
 
-                <option>Солонгос хэл</option>
-
-                <option>Орос хэл</option>
-              </select>
+              <div className={styles['paview__item']}>
+                Үндсэн үнэ: <span className={styles['paview__value']}>₮{(book['price'] * counter).toLocaleString()}</span>
+              </div>
             </div>
-
-            <div className={styles['bookgenre__item']}>
-              <select>
-                <option>Шинэ</option>
-
-                <option>Хуучин</option>
-              </select>
-            </div>
-
-            <div className={styles['bookgenre__item']}>
-              <select>
-                <option>100-500 хуудастай</option>
-
-                <option>500-1000 хуудастай</option>
-              </select>
-            </div>
-          </div>
-
-          <div className={styles['book__list']}>
-            {buybooksfiltered.map((item, i) => (
-              <BookItem key={v4()} data={item} />
-            ))}
-          </div>
-        </div>
-
-        <div className={styles['book']} id='rentbooks'>
-          <div className={styles['book__label']}>Түрээслэх</div>
-
-          <div className={styles['bookgenre']}>
-            <div className={styles['bookgenre__item']}>
-              <select>
-                <option>Адал явдалт</option>
-
-                <option>Уран зөгнөлт</option>
-
-                <option>Хөгжил</option>
-
-                <option>Түүх</option>
-
-                <option>Сурах бичиг</option>
-
-                <option>Хүүхдийн</option>
-              </select>
-            </div>
-
-            <div className={styles['bookgenre__item']}>
-              <select>
-                <option>Монгол хэл</option>
-
-                <option>Англи хэл</option>
-
-                <option>Япон хэл</option>
-
-                <option>Солонгос хэл</option>
-
-                <option>Орос хэл</option>
-              </select>
-            </div>
-
-            <div className={styles['bookgenre__item']}>
-              <select>
-                <option>Шинэ</option>
-
-                <option>Хуучин</option>
-              </select>
-            </div>
-
-            <div className={styles['bookgenre__item']}>
-              <select>
-                <option>100-500 хуудастай</option>
-
-                <option>500-1000 хуудастай</option>
-              </select>
-            </div>
-          </div>
-
-          <div className={styles['book__list']}>
-            {rentbooksfiltered.map((item, i) => (
-              <BookItem key={v4()} data={item} />
-            ))}
           </div>
         </div>
       </div>
@@ -196,4 +129,8 @@ const Index = () => {
 
 //<div className={styles['']}></div>
 
-export default Index;
+export default Read;
+
+export const getServerSideProps = (context) => {
+  return { props: { id: context['query']?.['id'] } };
+};

@@ -1,0 +1,182 @@
+.read {
+  background: var(--cr-background);
+  color: var(--cr-text);
+}
+
+.read__wrapper {
+  display: grid;
+  grid-gap: var(--sp-normal);
+  max-width: 1200px;
+  width: 90%;
+  margin: var(--sp-normal) auto 0;
+}
+
+.boqinfo {
+  display: grid;
+  grid-gap: var(--sp-normal);
+}
+
+.preview {
+  display: flex;
+  justify-content: center;
+}
+
+.preview img {
+  max-height: 300px;
+}
+
+.qinfo {
+  display: grid;
+  grid-gap: var(--sp-normal);
+  height: min-content;
+}
+
+.qinfo__genre {
+  /* background: rgb(237, 237, 237); */
+  width: fit-content;
+  padding: 3px 6px;
+  color: var(--cr-text);
+  border: 1px solid var(--cr-border);
+  border-radius: 2px;
+}
+
+.qinfo__title {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.qinfo__label {
+  color: rgb(123, 123, 123);
+}
+
+.payment__wrapper {
+  display: grid;
+  grid-gap: var(--sp-normal);
+  grid-gap: var(--sp-normal);
+  margin-top: var(--sp-normal);
+}
+
+.payment__label {
+  font-weight: 600;
+}
+
+.painfo {
+  display: grid;
+  grid-gap: 15px;
+}
+
+.painfo__label {
+  margin-bottom: 15px;
+}
+
+.painfo__price {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.painfo__cnt {
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  width: min-content;
+  height: 35px;
+  border: 1px solid var(--cr-gray);
+  border-radius: 5px;
+  padding: 0 10px;
+}
+
+.painfo__cnt svg {
+  cursor: pointer;
+}
+
+.painfo__cnt span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  border-right: 1px solid var(--cr-gray);
+  border-left: 1px solid var(--cr-gray);
+  padding: 0 14px;
+}
+
+.painfo__genre {
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 30px;
+  width: fit-content;
+}
+
+.painfo__genre-item {
+  border: 1px solid var(--cr-gray);
+  border-radius: 2px;
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.painfo__genre-item--selected {
+  font-weight: 600;
+  border: 1px solid black;
+}
+
+.painfo__button {
+  border: 1px solid var(--cr-gray);
+  border-radius: 5px;
+  width: fit-content;
+  padding: 10px 15px;
+  margin-top: 15px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.painfo__button:hover {
+  border: 1px solid var(--cr-nomlog);
+  color: var(--cr-nomlog);
+}
+
+.paview {
+  border: 1px solid var(--cr-gray);
+  border-radius: 5px;
+  padding: 15px;
+  height: min-content;
+}
+
+.paview__label {
+  color: rgb(123, 123, 123);
+  font-weight: 600;
+}
+
+.paview__item {
+  margin-top: var(--sp-small);
+}
+
+.paview__value {
+  font-weight: 600;
+  margin-left: 10px;
+}
+
+@media (min-width: 576px) {
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 992px) {
+  .boqinfo {
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .payment__wrapper {
+    grid-template-columns: 1fr 300px;
+  }
+}
+
+@media (min-width: 1200px) {
+}
+
+@media (min-width: 1400px) {
+}
+
+@media (min-width: 1600px) {
+}

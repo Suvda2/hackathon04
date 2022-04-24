@@ -1,0 +1,11 @@
+import styles from './.module.css'
+
+const  = () => {
+  return (<div className={styles['']}></div>)
+}
+
+//<div className={styles['']}></div>
+
+export default ;
+
+//export const getServerSideProps = (context) => {return { props: {} };};

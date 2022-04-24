@@ -1,3 +1,17 @@
 {
-  "extends": "next/core-web-vitals"
+  "plugins": [
+    "react"
+  ],
+  "extends": "next",
+  "rules": {
+    "react/no-unescaped-entities": "off",
+    "@next/next/no-page-custom-font": "off",
+    "@next/next/no-document-import-in-page": "off"
+  }
 }
+// {
+//   "plugins": [
+//     "react"
+//   ],
+//   "extends": ["eslint:all", "plugin:react/all"]
+// }
